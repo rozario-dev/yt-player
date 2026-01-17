@@ -1,8 +1,8 @@
 .container {
-  background-color: white;
+  background-color: #000000;
   border-radius: 8px;
   padding: 1.5rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: none;
 }
 
 .timeDisplay {
@@ -10,7 +10,7 @@
   font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 1rem;
-  color: #333;
+  color: #ffffff;
 }
 
 .basicControls {
@@ -20,23 +20,27 @@
 }
 
 .playButton {
-  padding: 0.75rem 2rem;
+  padding: 1rem 2rem;
   font-size: 1.1rem;
-  background-color: #28a745;
+  background-color: transparent;
   color: white;
-  border: none;
-  border-radius: 4px;
+  border: 1px solid #333;
+  border-radius: 8px;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: all 0.2s;
+  font-weight: 400;
 }
 
 .playButton:hover:not(:disabled) {
-  background-color: #218838;
-  transform: scale(1.05);
+  background-color: #1a1a1a;
+}
+
+.playButton:active:not(:disabled) {
+  background-color: #2a2a2a;
 }
 
 .playButton:disabled {
-  background-color: #ccc;
+  opacity: 0.3;
   cursor: not-allowed;
 }
 
