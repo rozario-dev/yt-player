@@ -1,0 +1,56 @@
+.container {
+  background-color: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.timeDisplay {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.basicControls {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.playButton {
+  padding: 0.75rem 2rem;
+  font-size: 1.1rem;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.playButton:hover:not(:disabled) {
+  background-color: #218838;
+  transform: scale(1.05);
+}
+
+.playButton:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+  
+  .timeDisplay {
+    font-size: 1.2rem;
+  }
+  
+  .playButton {
+    padding: 0.6rem 1.5rem;
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,16 @@
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 854px;
+  margin: 0 auto 2rem;
+  background-color: #000;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 100%;
+  }
+}
