@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import VideoInput from './components/VideoInput/VideoInput';
 import VideoPlayer from './components/VideoPlayer/VideoPlayer';
+import VideoInfo from './components/VideoInfo/VideoInfo';
 import PlayerControls from './components/PlayerControls/PlayerControls';
 import { useYouTubePlayer } from './hooks/useYouTubePlayer';
 import './App.css';
@@ -86,6 +87,8 @@ function App() {
 
         {videoId && (
           <>
+            <VideoInfo videoId={videoId} />
+            
             <VideoPlayer
               videoId={videoId}
               onReady={handleReady}
