@@ -40,7 +40,7 @@ const PlayerControls: React.FC<PlayerControlsProps> = ({
             className="group relative px-10 py-3 text-base font-semibold bg-gradient-to-r from-red-600 to-red-700 text-white rounded-xl cursor-pointer transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed hover:from-red-700 hover:to-red-800 hover:shadow-lg hover:shadow-red-500/50 hover:scale-105 active:scale-95 w-full sm:w-auto overflow-hidden"
           >
             <span className="relative z-10 flex items-center justify-center gap-2">
-              {isPlaying ? '▶️ Play' : '▶️ Play'}
+              {isPlaying ? '⏸ Pause' : '▶ Play'}
             </span>
             <div className="absolute inset-0 bg-gradient-to-r from-red-500/0 via-white/20 to-red-500/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
           </button>
