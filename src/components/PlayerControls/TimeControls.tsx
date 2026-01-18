@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from './TimeControls.module.css';
 
 interface TimeControlsProps {
   onSeek: (seconds: number) => void;
@@ -22,32 +21,28 @@ const TimeControls: React.FC<TimeControlsProps> = ({ onSeek, disabled }) => {
   ];
 
   return (
-    <div className={styles.container}>
-      <div className={styles.buttonGroup}>
-        <div className={styles.backwardGroup}>
-          {backwardButtons.map((btn) => (
-            <button
-              key={btn.label}
-              onClick={() => onSeek(btn.seconds)}
-              disabled={disabled}
-              className={`${styles.button} ${styles.backward}`}
-            >
-              {btn.label}
-            </button>
-          ))}
-        </div>
-        <div className={styles.forwardGroup}>
-          {forwardButtons.map((btn) => (
-            <button
-              key={btn.label}
-              onClick={() => onSeek(btn.seconds)}
-              disabled={disabled}
-              className={`${styles.button} ${styles.forward}`}
-            >
-              {btn.label}
-            </button>
-          ))}
-        </div>
+    <div className="flex flex-col gap-3">
+      <div className="flex flex-wrap gap-2 justify-center">
+        {backwardButtons.map((btn) => (
+          <button
+            key={btn.label}
+            onClick={() => onSeek(btn.seconds)}
+            disabled={disabled}
+            className="px-4 py-2.5 text-sm font-medium bg-black text-white border border-white rounded-md cursor-pointer transition-all duration-200 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-gray-900 hover:scale-105 active:scale-95"
+          >
+            {btn.label}
+          </button>
+        ))}
+        {forwardButtons.map((btn) => (
+          <button
+            key={btn.label}
+            onClick={() => onSeek(btn.seconds)}
+            disabled={disabled}
+            className="px-4 py-2.5 text-sm font-medium bg-black text-white border border-white rounded-md cursor-pointer transition-all duration-200 disabled:opacity-30 disabled:cursor-not-allowed hover:bg-gray-900 hover:scale-105 active:scale-95"
+          >
+            {btn.label}
+          </button>
+        ))}
       </div>
     </div>
   );

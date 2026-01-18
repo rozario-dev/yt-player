@@ -4,7 +4,6 @@ import VideoPlayer from './components/VideoPlayer/VideoPlayer';
 import VideoInfo from './components/VideoInfo/VideoInfo';
 import PlayerControls from './components/PlayerControls/PlayerControls';
 import { useYouTubePlayer } from './hooks/useYouTubePlayer';
-import './App.css';
 
 function App() {
   const [videoId, setVideoId] = useState<string>('');
@@ -71,53 +70,65 @@ function App() {
   };
 
   return (
-    <div className="app">
-      <header className="app-header">
-        <img src="/logo.svg" alt="Logo" className="app-logo" />
-        <h1>YouTube Video Player</h1>
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 flex flex-col">
+      <header className="bg-gradient-to-r from-red-600 to-red-700 shadow-lg">
+        <div className="max-w-5xl mx-auto px-4 py-4 md:py-6">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-2 md:gap-3">
+            <img src="/logo.svg" alt="Logo" className="w-10 h-10 md:w-12 md:h-12 drop-shadow-lg animate-pulse" />
+            <h1 className="text-xl md:text-3xl font-bold text-white tracking-tight">
+              YouTube Video Player
+            </h1>
+          </div>
+        </div>
       </header>
 
-      <main className="app-main">
-        <VideoInput
-          onVideoIdChange={setVideoId}
-          onError={setError}
-        />
+      <main className="flex-1 flex items-start justify-center px-4 sm:px-6 lg:px-8 py-6 md:py-10">
+        <div className="w-full max-w-5xl">
+          <VideoInput
+            onVideoIdChange={setVideoId}
+            onError={setError}
+          />
 
-        {error && <div className="error-message">{error}</div>}
+          {error && (
+            <div className="bg-red-500/10 border border-red-500/50 text-red-400 px-6 py-4 rounded-xl text-center my-6 backdrop-blur-sm animate-shake">
+              <p className="font-medium">{error}</p>
+            </div>
+          )}
 
-        {videoId && (
-          <>
-            <VideoInfo videoId={videoId} />
-            
-            <VideoPlayer
-              videoId={videoId}
-              onReady={handleReady}
-              onStateChange={handleStateChange}
-              onError={handleError}
-            />
+          {videoId && (
+            <div className="space-y-5">
+              <VideoInfo videoId={videoId} />
+              
+              <VideoPlayer
+                videoId={videoId}
+                onReady={handleReady}
+                onStateChange={handleStateChange}
+                onError={handleError}
+              />
 
-            <PlayerControls
-              player={playerRef.current}
-              isPlaying={isPlaying}
-              currentTime={currentTime}
-              duration={duration}
-              onPlayPause={togglePlayPause}
-              onSeek={seekTo}
-            />
-          </>
-        )}
+              <PlayerControls
+                player={playerRef.current}
+                isPlaying={isPlaying}
+                currentTime={currentTime}
+                duration={duration}
+                onPlayPause={togglePlayPause}
+                onSeek={seekTo}
+              />
+            </div>
+          )}
 
-        {/* Google AdSense Ad Container */}
-        {adsenseClientId && adsenseSlotId && (
-          <div className="ad-container">
-            <ins className="adsbygoogle"
-                 style={{ display: 'block' }}
-                 data-ad-client={adsenseClientId}
-                 data-ad-slot={adsenseSlotId}
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-          </div>
-        )}
+          {/* Google AdSense Ad Container */}
+          {adsenseClientId && adsenseSlotId && (
+            <div className="mt-10 min-h-[100px] flex justify-center items-center">
+              <ins className="adsbygoogle"
+                   style={{ display: 'block' }}
+                   data-ad-client={adsenseClientId}
+                   data-ad-slot={adsenseSlotId}
+                   data-ad-format="auto"
+                   data-full-width-responsive="true"></ins>
+            </div>
+          )}
+        </div>
       </main>
     </div>
   );
